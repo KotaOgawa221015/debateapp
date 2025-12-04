@@ -1,6 +1,6 @@
 // frontend/recorder.js
 
-const WS_URL = "ws://localhost:8002/ws/stream/";  // ← 社内LANならサーバIPでOK
+const WS_URL = "ws://localhost:8000/ws/stream/";  // ← 社内LANならサーバIPでOK
 let ws;
 let mediaRecorder;
 let audioStream;

@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>音声文字起こし</title>
+<link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<h1>音声文字起こしアプリ</h1>
+
+<button onclick="startRecording()">録音開始</button>
+<button onclick="stopRecording()">停止 & 送信</button>
+
+<p>結果:</p>
+<div id="resultBox"></div>
+
+<script src="{% static 'recorder.js' %}"></script>
+</body>
+</html>

@@ -4,6 +4,11 @@ from rest_framework import status
 from .models import Transcript
 from .serializers import TranscriptSerializer
 
+from django.shortcuts import render
+
+def index(request):
+    return render(request, 'api/index.html')
+
 # ==== POSTで文字起こし結果を保存 ====
 class TranscriptCreate(APIView):
     def post(self, request):
