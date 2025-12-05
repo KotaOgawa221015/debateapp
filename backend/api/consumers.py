@@ -1,22 +1,17 @@
-# whisper処理が必要になった時に使う想定
-from channels.generic.websocket import AsyncWebsocketConsumer
 import json
-import torch
-import whisper
-
-model = whisper.load_model("base")  # whisperモデル
+from channels.generic.websocket import AsyncWebsocketConsumer
 
 class StreamConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         await self.accept()
+        print("WebSocket Connected")
 
-    async def receive(self, bytes_data=None, text_data=None):
-        if bytes_data:
-            # bytes → wav解析などの処理が必要（後で追加）
-            result = model.transcribe(bytes_data)
-            text = result.get("text", "")
-            
-            await self.send(json.dumps({
-                "type": "final",
-                "text": text
-            }))
+    async def disconnect(self, close_code):
+        print("WebSocket Disconnected")
+
+    async def receive(self, text_data=None, bytes_data=None):
+        # 今はただ受け取ったデータを返すだけ（動作確認用）
+        await self.send(json.dumps({
+            "type": "final",
+            "text": "受信しました"
+        }))

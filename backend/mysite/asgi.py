@@ -1,8 +1,8 @@
 import os
 from channels.routing import ProtocolTypeRouter, URLRouter
-from django.core.asgi import get_asgi_application
 from channels.auth import AuthMiddlewareStack
-import api.routing  # ← routing.py を認識させる
+from django.core.asgi import get_asgi_application
+import api.routing  # ← 重要！App名に合わせて変更
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
 

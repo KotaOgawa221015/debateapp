@@ -1,4 +1,3 @@
-# stream_app/routing.py
 from django.urls import path
 from .consumers import StreamConsumer
 
