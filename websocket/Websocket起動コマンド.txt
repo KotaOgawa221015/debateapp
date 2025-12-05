@@ -1,0 +1,2 @@
+# ポート番号がdjangoと被るからちょっと変えてる
+uvicorn main:app --host 127.0.0.1 --port 8100
