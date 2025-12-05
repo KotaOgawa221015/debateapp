@@ -1,6 +1,6 @@
 // frontend/recorder.js
 
-const WS_URL = "ws://localhost:8000/ws/stream/";  // ← 社内LANならサーバIPでOK
+const WS_URL = "ws://127.0.0.1:8100/ws/stream";  // ← 社内LANならサーバIPでOK
 let ws;
 let mediaRecorder;
 let audioStream;
@@ -14,12 +14,12 @@ startBtn.addEventListener("click", startRecording);
 stopBtn.addEventListener("click", stopRecording);
 
 async function startRecording() {
-  try {
-    audioStream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
-  } catch (err) {
-    alert("⚠ マイクのアクセスが拒否されました: " + err);
-    return;
-  }
+  // try {
+  //   audioStream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+  // } catch (err) {
+  //   alert("⚠ マイクのアクセスが拒否されました: " + err);
+  //   return;
+  // }
 
   ws = new WebSocket(WS_URL);
   ws.binaryType = "arraybuffer";

@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api',  # ← 追加
     'rest_framework',  # ← DRF使用推奨
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -116,3 +117,10 @@ STATICFILES_DIRS = [BASE_DIR / 'api'/'static']
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Channels のデフォルト設定
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    },
+}
