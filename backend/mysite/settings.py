@@ -2,12 +2,10 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
-load_dotenv(dotenv_path="../.env")
+BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(os.path.join(BASE_DIR, ".env"))
 
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -32,7 +30,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api',  # ← 追加
-    'rest_framework',  # ← DRF使用推奨
     'channels',
 ]
 
@@ -117,7 +114,7 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'api'/'static']
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DATA_UPLOAD_MAX_MEMORY_SIZE = 52428800
 

@@ -1,6 +1,6 @@
 from django.urls import path
-from .consumers import StreamConsumer
+from .consumers import AudioConsumer
 
 websocket_urlpatterns = [
-    path("ws/stream/", StreamConsumer.as_asgi()),
+    path("ws/stream/", AudioConsumer.as_asgi()),
 ]

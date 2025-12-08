@@ -10,11 +10,15 @@
 
 <h1>音声文字起こしアプリ</h1>
 
-<button onclick="startRecording()">録音開始</button>
-<button onclick="stopRecording()">停止 & 送信</button>
+<button id="start" onclick="startRecording()">録音開始</button>
+<button id="stop" onclick="stopRecording()" disabled>停止 & 送信</button>
 
-<p>結果:</p>
-<div id="resultBox"></div>
+<p>途中認識:</p>
+<div id="partial">--</div>
+
+<p>最終結果:</p>
+<ul id="finals"></ul>
+
 
 <script src="{% static 'recorder.js' %}"></script>
 </body>
