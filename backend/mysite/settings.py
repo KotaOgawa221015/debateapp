@@ -1,4 +1,10 @@
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+load_dotenv(dotenv_path="../.env")
+
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -112,6 +118,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'api'/'static']
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = 52428800
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

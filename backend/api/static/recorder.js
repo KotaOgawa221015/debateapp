@@ -14,12 +14,12 @@ startBtn.addEventListener("click", startRecording);
 stopBtn.addEventListener("click", stopRecording);
 
 async function startRecording() {
-  // try {
-  //   audioStream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
-  // } catch (err) {
-  //   alert("⚠ マイクのアクセスが拒否されました: " + err);
-  //   return;
-  // }
+  try {
+    audioStream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+  } catch (err) {
+    alert("⚠ マイクのアクセスが拒否されました: " + err);
+    return;
+  }
 
   ws = new WebSocket(WS_URL);
   ws.binaryType = "arraybuffer";
